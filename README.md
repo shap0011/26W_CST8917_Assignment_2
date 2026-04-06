@@ -47,6 +47,32 @@ For each service, include:
 - **Pricing Model** – high-level cost considerations
 - **Strengths & Weaknesses** – from a serverless architecture perspective
 
+### Comparison Table
+
+#### Azure Functions vs AWS Lambda vs GCP Cloud Run functions
+
+| Criteria          | Azure Functions                                           | AWS Lambda                                                | Cloud Run functions                                                |
+| ----------------- | --------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------ |
+| **Overview**      | Event-driven serverless compute using triggers & bindings | Event-driven compute tightly integrated with AWS services | Serverless functions running on Cloud Run with event/HTTP triggers |
+| **Core Features** | Triggers + bindings simplify input/output handling        | Event source mappings and wide AWS integrations           | HTTP + event-driven (via Eventarc/Pub/Sub)                         |
+| **Integration**   | Strong Azure integrations via bindings                    | Deep AWS ecosystem (S3, SQS, API Gateway)                 | Integrates with Cloud Run, Eventarc, Pub/Sub                       |
+| **Monitoring**    | Azure Monitor + Application Insights                      | CloudWatch + X-Ray                                        | Cloud Logging + Monitoring                                         |
+| **Pricing**       | Pay per execution + consumption                           | Pay per request + duration                                | Pay per use (Cloud Run-based)                                      |
+| **Strengths**     | Easy integration, less boilerplate                        | Mature ecosystem, flexible                                | Modern event model, Cloud Run alignment                            |
+| **Weaknesses**    | Azure-specific model                                      | Can require multiple services                             | Less unified, more setup across services                           |
+
+#### Narrative Analysis (Shortened)
+
+Azure Functions, AWS Lambda, and Cloud Run functions all provide serverless, event-driven compute, but they differ in how developers interact with them.
+
+Azure Functions stands out for its **trigger and binding model**, which reduces boilerplate code and simplifies integration with other Azure services. This makes it especially beginner-friendly and efficient for Azure-based applications.
+
+AWS Lambda offers similar functionality but is more **ecosystem-driven**, requiring integration with multiple AWS services like S3, SQS, and API Gateway. While this increases flexibility and power, it can also make architectures more complex.
+
+Cloud Run functions takes a more **modern and flexible approach**, relying on Cloud Run and Eventarc for event handling. However, this separation can make it feel less centralized compared to Azure Functions.
+
+Overall, **Azure Functions is best for rapid development in Azure, AWS Lambda is strongest within complex AWS architectures,** and **Cloud Run functions is a flexible but slightly less unified GCP alternative**.
+
 ---
 
 ## 4. Organize in Markdown
