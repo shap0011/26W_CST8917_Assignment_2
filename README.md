@@ -47,7 +47,9 @@ For each service, include:
 - **Pricing Model** – high-level cost considerations
 - **Strengths & Weaknesses** – from a serverless architecture perspective
 
-### Comparison Table
+### Comparison Tables
+
+---
 
 #### Azure Functions vs AWS Lambda vs GCP Cloud Run functions
 
@@ -61,7 +63,7 @@ For each service, include:
 | **Strengths**     | Easy integration, less boilerplate                        | Mature ecosystem, flexible                                | Modern event model, Cloud Run alignment                            |
 | **Weaknesses**    | Azure-specific model                                      | Can require multiple services                             | Less unified, more setup across services                           |
 
-#### Narrative Analysis (Shortened)
+**Narrative Analysis**
 
 Azure Functions, AWS Lambda, and Cloud Run functions all provide serverless, event-driven compute, but they differ in how developers interact with them.
 
@@ -72,6 +74,32 @@ AWS Lambda offers similar functionality but is more **ecosystem-driven**, requir
 Cloud Run functions takes a more **modern and flexible approach**, relying on Cloud Run and Eventarc for event handling. However, this separation can make it feel less centralized compared to Azure Functions.
 
 Overall, **Azure Functions is best for rapid development in Azure, AWS Lambda is strongest within complex AWS architectures,** and **Cloud Run functions is a flexible but slightly less unified GCP alternative**.
+
+---
+
+#### Durable Functions vs AWS Step Functions vs GCP Workflows
+
+| Criteria          | Durable Functions                                                     | AWS Step Functions                                                      | Google Cloud Workflows                                              |
+| ----------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **Overview**      | Extension of Azure Functions for stateful workflows and orchestration | Serverless workflow orchestration service for coordinating AWS services | Managed workflow orchestration service for GCP services and APIs    |
+| **Core Features** | Orchestrations, chaining, fan-out/fan-in, state management            | Visual workflows, state machines, error handling, retries               | YAML/JSON-defined workflows, sequencing, retries, API orchestration |
+| **Integration**   | Works with Azure Functions and other Azure services                   | Deep integration with AWS services (Lambda, SQS, SNS, etc.)             | Integrates with GCP services and REST APIs                          |
+| **Monitoring**    | Application Insights + Azure Monitor                                  | CloudWatch + Step Functions visual monitoring                           | Cloud Logging + Monitoring                                          |
+| **Pricing**       | Based on executions and resource usage                                | Based on state transitions                                              | Based on workflow steps and execution time                          |
+| **Strengths**     | Code-first orchestration, tight Azure integration                     | Visual workflows, highly scalable, mature                               | Simple syntax, strong API orchestration                             |
+| **Weaknesses**    | Tied to Azure Functions, less visual                                  | Can become complex with large workflows                                 | Less feature-rich than AWS/Azure                                    |
+
+**Narrative Analysis**
+
+Durable Functions, AWS Step Functions, and Google Cloud Workflows all provide **workflow orchestration**, but they differ significantly in how workflows are defined and managed.
+
+Durable Functions follows a **code-first approach**, where workflows are written in programming languages using Azure Functions. It supports patterns like chaining, fan-out/fan-in, and long-running workflows with built-in state management. This makes it flexible for developers but less visual.
+
+AWS Step Functions uses a **visual**, **state-machine-based approach,** making workflows easier to design, debug, and monitor. It is highly scalable and integrates deeply with AWS services, but complex workflows can become harder to manage.
+
+Google Cloud Workflows takes a **simpler**, **configuration-based approach**, using YAML or JSON to define workflows. It is particularly strong for orchestrating APIs and lightweight processes but lacks some advanced features compared to AWS and Azure.
+
+Overall, **Durable Functions is best for developer-driven orchestration in Azure**, **AWS Step Functions is ideal for visual and large-scale workflows**, and **Google Cloud Workflows is best for simple orchestration and API integration**.
 
 ---
 
