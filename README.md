@@ -8,9 +8,9 @@
 
 ---
 
-## 1. Required Azure Services to Compare
+## 1. Azure Services to Compare
 
-At a minimum, your report must include the following Azure services:
+The report include the following Azure services:
 
 - **Azure Functions** (Triggers & Bindings)
 - **Durable Functions** (Chaining, Orchestration, Fan-out/Fan-in)
@@ -18,8 +18,6 @@ At a minimum, your report must include the following Azure services:
 - **Azure Service Bus** (Queues & Topics)
 - **Azure Event Grid**
 - **Azure Event Hubs**
-
-_(You may include additional Azure services from the course if relevant.)_
 
 ---
 
@@ -38,7 +36,7 @@ _(You may include additional Azure services from the course if relevant.)_
 
 ## 3. Comparing the Services
 
-For each service, include:
+For each service, included:
 
 - **Overview** – brief description of each service
 - **Core Features** – supported triggers, bindings, messaging/eventing capabilities
@@ -65,11 +63,15 @@ For each service, include:
 
 **Narrative Analysis**
 
-Azure Functions, AWS Lambda, and Cloud Run functions all provide serverless compute but differ in approach.
+Azure Functions, AWS Lambda, and Cloud Run functions all provide serverless, event-driven compute, but they differ in how developers build and integrate applications.
 
-Azure Functions uses a **trigger and binding model**, simplifying integrations and reducing boilerplate, making it ideal for rapid Azure development. AWS Lambda is more **ecosystem-driven**, offering flexibility but requiring multiple services. Cloud Run functions is **modern and flexible**, but less centralized due to reliance on Cloud Run and Eventarc.
+Azure Functions uses a **trigger and binding model**, which simplifies development by reducing the need for boilerplate code when connecting to other services. This makes it especially effective for integration-heavy solutions and more approachable for developers working within the Azure ecosystem.
 
-Overall, **Azure Functions favors simplicity, Lambda favors flexibility**, and **Cloud Run functions favors modern architecture**.
+AWS Lambda follows a more **ecosystem-driven approach**, where functions are tightly integrated with other AWS services such as S3, SQS, and API Gateway. While this provides high flexibility and scalability, it often requires combining multiple services, which can increase architectural complexity.
+
+Cloud Run functions takes a **modern, container-based approach**, relying on Cloud Run and Eventarc for execution and event routing. This provides flexibility and aligns with modern cloud standards, but can feel less centralized compared to Azure Functions.
+
+Overall, Azure Functions is best suited for rapid development in Azure environments, AWS Lambda for complex and scalable AWS architectures, and Cloud Run functions for flexible, modern GCP-based solutions.
 
 ---
 
@@ -87,11 +89,15 @@ Overall, **Azure Functions favors simplicity, Lambda favors flexibility**, and *
 
 **Narrative Analysis**
 
-Durable Functions, AWS Step Functions, and Google Cloud Workflows all enable serverless workflow orchestration but differ in approach.
+Durable Functions, AWS Step Functions, and Google Cloud Workflows all provide serverless workflow orchestration, but they differ in how workflows are defined and managed.
 
-Durable Functions is **code-first**, offering flexibility and built-in patterns like fan-out/fan-in, making it ideal for developer-driven solutions in Azure. AWS Step Functions is **visual and state-machine-based**, making workflows easier to manage at scale but sometimes complex. Google Cloud Workflows is **simpler and configuration-based**, best suited for API orchestration but less feature-rich.
+Durable Functions follows a **code-first approach**, where workflows are written using programming languages within Azure Functions. It supports advanced patterns such as chaining, fan-out/fan-in, and long-running processes with built-in state management. This gives developers strong flexibility and control, especially for complex application logic.
 
-Overall, **Durable Functions favors flexibility, Step Functions favors scalability and visibility**, and **Workflows favors simplicity**.
+AWS Step Functions uses a **visual, state machine-based model**, allowing workflows to be defined as a series of states. This makes it easier to design, monitor, and debug workflows, particularly in large-scale systems. However, as workflows grow, they can become complex to manage.
+
+Google Cloud Workflows takes a more **configuration-based approach**, using YAML or JSON to define sequences of tasks. It is well-suited for orchestrating APIs and simple workflows but offers fewer advanced orchestration patterns.
+
+Overall, Durable Functions is ideal for developer-driven orchestration in Azure, Step Functions for scalable and visual workflow management, and Cloud Workflows for simpler orchestration scenarios.
 
 ---
 
@@ -109,11 +115,15 @@ Overall, **Durable Functions favors flexibility, Step Functions favors scalabili
 
 **Narrative Analysis**
 
-Azure Logic Apps, AWS Step Functions, and GCP Application Integration all support workflow automation, but target different users.
+Azure Logic Apps, AWS Step Functions, and GCP Application Integration all enable workflow automation, but they are designed for different types of users and use cases.
 
-Logic Apps is **low-code and connector-driven**, making it ideal for quickly integrating services with minimal development. AWS Step Functions is more **developer-oriented and scalable**, but less suited for simple integrations. GCP Application Integration is **lightweight and API-focused,** offering simplicity but fewer features.
+Azure Logic Apps is a **low-code, connector-based service** that allows users to build workflows using a visual designer. It provides a large library of prebuilt connectors for Microsoft and third-party services, making it especially useful for quickly integrating systems without extensive coding. This makes it ideal for business processes and integration scenarios.
 
-Overall, **Logic Apps is best for rapid, low-code integrations**, **Step Functions for complex workflows**, and **Application Integration for simple API orchestration**.
+AWS Step Functions, in contrast, is more **developer-focused**, using a state machine model to define workflows. While it offers greater control and scalability, it is less suited for simple integrations and requires more technical expertise.
+
+GCP Application Integration is also **low-code and API-focused**, enabling users to connect services through visual flows. However, it generally offers fewer connectors and features compared to Azure Logic Apps.
+
+Overall, Azure Logic Apps is best for rapid, low-code integrations, Step Functions for complex and scalable workflows, and Application Integration for lightweight API orchestration.
 
 ---
 
@@ -131,11 +141,15 @@ Overall, **Logic Apps is best for rapid, low-code integrations**, **Step Functio
 
 **Narrative Analysis**
 
-Azure Service Bus, Amazon SQS/SNS, and GCP Pub/Sub all provide messaging for distributed systems but differ in design.
+Azure Service Bus, Amazon SQS/SNS, and GCP Pub/Sub all provide messaging capabilities for distributed systems, but they differ in complexity and design approach.
 
-Azure Service Bus offers **advanced messaging features** like topics, ordering, and dead-lettering in a single service, making it suitable for enterprise applications. AWS separates concerns using **SQS (queues) and SNS (pub/sub)**, which increases flexibility but requires more setup. GCP Pub/Sub is **highly scalable and simple**, but lacks some advanced messaging controls.
+Azure Service Bus is a **fully featured messaging service** that supports queues and topics within a single platform. It includes advanced capabilities such as message ordering, dead-lettering, and publish/subscribe patterns, making it well-suited for enterprise applications that require reliable and controlled message handling.
 
-Overall, **Service Bus is best for complex messaging scenarios, SQS/SNS for flexible AWS architectures**, and **Pub/Sub for high-throughput event streaming**.
+AWS separates messaging into **SQS (queues) and SNS (pub/sub)**, which provides flexibility but requires combining multiple services to achieve similar functionality. This modular approach works well in AWS environments but can increase architectural complexity.
+
+GCP Pub/Sub offers a **simple and highly scalable messaging model**, designed for high-throughput event distribution. While it is easy to use and scales automatically, it lacks some of the advanced messaging features found in Azure Service Bus.
+
+Overall, Azure Service Bus is ideal for complex, enterprise messaging scenarios, SQS/SNS for flexible AWS-based architectures, and Pub/Sub for scalable and straightforward messaging.
 
 ---
 
@@ -153,10 +167,40 @@ Overall, **Service Bus is best for complex messaging scenarios, SQS/SNS for flex
 
 **Narrative Analysis**
 
-Azure Event Grid, Amazon EventBridge, and GCP Eventarc all provide event routing but differ in flexibility and design.
+Azure Event Grid, Amazon EventBridge, and GCP Eventarc all provide event routing for event-driven architectures, but they differ in flexibility and level of abstraction.
 
-Event Grid is **simple and efficient**, designed for low-latency event delivery in Azure. EventBridge is more **feature-rich and flexible**, supporting advanced routing and multiple event sources. Eventarc follows a **modern, CloudEvents-based approach**, but depends on other GCP services.
+Azure Event Grid is designed for **simple and low-latency event routing**, enabling systems to react quickly to events generated by Azure services or custom sources. Its publish/subscribe model is easy to configure, making it a strong choice for reactive applications that require minimal overhead.
 
-Overall, **Event Grid favors simplicity, EventBridge favors flexibility**, and **Eventarc favors standardization**.
+Amazon EventBridge offers a more **feature-rich and flexible event bus**, supporting advanced filtering, multiple event sources (including SaaS integrations), and event scheduling. This makes it powerful for complex event-driven systems, but also more complex to configure and manage.
+
+GCP Eventarc follows a **modern, CloudEvents-based approach**, providing standardized event routing across Google Cloud services. It integrates well with Cloud Run and other GCP tools, but often depends on additional services, which can make the architecture less centralized.
+
+Overall, Azure Event Grid is best for simple and efficient event routing, EventBridge for flexible and feature-rich event management, and Eventarc for standardized, modern event-driven solutions.
+
+---
+
+#### Azure Event Hubs vs Amazon Kinesis Data Streams vs GCP Pub/Sub
+
+| Criteria          | Azure Event Hubs                                            | Amazon Kinesis Data Streams                                | GCP Pub/Sub                                              |
+| ----------------- | ----------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------- |
+| **Overview**      | Big data streaming platform for event ingestion at scale    | Real-time data streaming service for large-scale ingestion | Messaging and event streaming service for real-time data |
+| **Core Features** | Partitioned streams, high throughput, event retention       | Shards, real-time processing, data retention               | Pub/sub messaging, push/pull delivery, scaling           |
+| **Integration**   | Integrates with Azure Analytics (Stream Analytics, Synapse) | Integrates with AWS analytics (Lambda, Kinesis Analytics)  | Integrates with Dataflow, BigQuery                       |
+| **Monitoring**    | Azure Monitor                                               | CloudWatch                                                 | Cloud Monitoring + Logging                               |
+| **Pricing**       | Based on throughput units and retention                     | Based on shards and data volume                            | Based on data volume and operations                      |
+| **Strengths**     | High throughput, strong analytics integration               | Fine-grained control over streams                          | Fully managed, easy scaling                              |
+| **Weaknesses**    | Requires configuration of partitions/units                  | Can be complex to manage shards                            | Less control over streaming internals                    |
+
+**Narrative Analysis**
+
+Azure Event Hubs, Amazon Kinesis Data Streams, and GCP Pub/Sub all support real-time event ingestion and streaming, but they differ in how much control and specialization they provide.
+
+Azure Event Hubs is designed for **high-throughput event ingestion** and works especially well in analytics and telemetry scenarios. It is tightly integrated with Azure data services such as Stream Analytics and Synapse, making it a strong choice for building large-scale data pipelines and processing streams of events in near real time.
+
+Amazon Kinesis Data Streams provides similar streaming capabilities but offers more **fine-grained control** over stream structure and processing through shards. This makes it powerful for custom streaming architectures, although it also introduces more operational complexity compared to a more fully managed approach.
+
+GCP Pub/Sub provides a **fully managed and highly scalable model** for event streaming and messaging. It is simple to use and integrates well with services like Dataflow and BigQuery, but it offers less control over the underlying streaming mechanics than Event Hubs or Kinesis.
+
+Overall, Azure Event Hubs is best for large-scale Azure data streaming, Kinesis for controlled and customizable stream processing, and Pub/Sub for simple, scalable event delivery.
 
 ---
