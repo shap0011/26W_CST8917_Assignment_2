@@ -91,22 +91,32 @@ Overall, **Azure Functions is best for rapid development in Azure, AWS Lambda is
 
 **Narrative Analysis**
 
-Durable Functions, AWS Step Functions, and Google Cloud Workflows all provide **workflow orchestration**, but they differ significantly in how workflows are defined and managed.
+Durable Functions, AWS Step Functions, and Google Cloud Workflows all enable serverless workflow orchestration but differ in approach.
 
-Durable Functions follows a **code-first approach**, where workflows are written in programming languages using Azure Functions. It supports patterns like chaining, fan-out/fan-in, and long-running workflows with built-in state management. This makes it flexible for developers but less visual.
+Durable Functions is **code-first**, offering flexibility and built-in patterns like fan-out/fan-in, making it ideal for developer-driven solutions in Azure. AWS Step Functions is **visual and state-machine-based**, making workflows easier to manage at scale but sometimes complex. Google Cloud Workflows is **simpler and configuration-based**, best suited for API orchestration but less feature-rich.
 
-AWS Step Functions uses a **visual**, **state-machine-based approach,** making workflows easier to design, debug, and monitor. It is highly scalable and integrates deeply with AWS services, but complex workflows can become harder to manage.
-
-Google Cloud Workflows takes a **simpler**, **configuration-based approach**, using YAML or JSON to define workflows. It is particularly strong for orchestrating APIs and lightweight processes but lacks some advanced features compared to AWS and Azure.
-
-Overall, **Durable Functions is best for developer-driven orchestration in Azure**, **AWS Step Functions is ideal for visual and large-scale workflows**, and **Google Cloud Workflows is best for simple orchestration and API integration**.
+Overall, **Durable Functions favors flexibility, Step Functions favors scalability and visibility**, and **Workflows favors simplicity**.
 
 ---
 
-## 4. Organize in Markdown
+#### Azure Logic Apps vs AWS Step Functions vs GCP Application Integration
 
-- Create a `README.md` file in your GitHub repository containing your report
-- Use **headings**, **tables**, and **bullet points** for clarity
-- Include a **comparison table** for each service, followed by a **narrative analysis**
+| Criteria          | Azure Logic Apps                                                       | AWS Step Functions                                     | GCP Application Integration                                                       |
+| ----------------- | ---------------------------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| **Overview**      | Low-code workflow automation service for integrating apps and services | Serverless workflow orchestration using state machines | Low-code integration service for connecting applications and automating workflows |
+| **Core Features** | Prebuilt connectors, triggers, visual designer, automation workflows   | State machines, visual workflows, error handling       | Prebuilt connectors, visual flows, API-based integrations                         |
+| **Integration**   | Strong integration with Microsoft services (Office 365, Azure, etc.)   | Deep AWS integrations (Lambda, SQS, SNS, etc.)         | Integrates with GCP services and external APIs                                    |
+| **Monitoring**    | Azure Monitor + built-in run history                                   | CloudWatch + visual execution tracking                 | Cloud Logging + Monitoring                                                        |
+| **Pricing**       | Pay per action/execution                                               | Pay per state transition                               | Pay per usage (executions and connectors)                                         |
+| **Strengths**     | Easy to use, low-code, many connectors                                 | Powerful, scalable workflows                           | Simple integrations, API-focused                                                  |
+| **Weaknesses**    | Less control than code-based solutions                                 | More complex for simple tasks                          | Fewer features and connectors than Azure                                          |
+
+**Narrative Analysis**
+
+Azure Logic Apps, AWS Step Functions, and GCP Application Integration all support workflow automation, but target different users.
+
+Logic Apps is **low-code and connector-driven**, making it ideal for quickly integrating services with minimal development. AWS Step Functions is more **developer-oriented and scalable**, but less suited for simple integrations. GCP Application Integration is **lightweight and API-focused,** offering simplicity but fewer features.
+
+Overall, **Logic Apps is best for rapid, low-code integrations**, **Step Functions for complex workflows**, and **Application Integration for simple API orchestration**.
 
 ---
